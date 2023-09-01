@@ -60,9 +60,10 @@ const server = http.createServer((req, res) => {
     else if (url[0] === '/deleteemployees') {
         deleteEmployee(req, res);
     }
-    else if (url[0] === '/favicon.ico') {
-        return;
-    }
+    // else if (url[0] === '/favicon.ico') {
+    //     res.end();
+    //     return;
+    // }
     else {
         file = req.url;
         router(file, res);
