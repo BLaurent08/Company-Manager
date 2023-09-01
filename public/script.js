@@ -1,3 +1,5 @@
+const baseURl = "https://company-manager-nine.vercel.app/";
+
 function submitData() {
     var CRUD = document.getElementById("function").value;
     if (document.title === "Departments") {
@@ -34,7 +36,7 @@ function submitData() {
 
 function getDepartments() {
     $.ajax({
-        url: '/getdepartments',
+        url: baseURL + 'getdepartments',
         type: 'GET',
         success: function (data) {
             displayDepartments(data);
@@ -80,7 +82,7 @@ function addDepartment() {
         budget: budget
     };
     $.ajax({
-        url: '/adddepartments',
+        url: baseURl + 'adddepartments',
         type: 'POST',
         data: department,
         success: function (data) {
@@ -117,7 +119,7 @@ function updateDepartment() {
         budget: budget
     };
     $.ajax({
-        url: '/updatedepartments',
+        url: baseURl + 'updatedepartments',
         type: 'POST',
         data: department,
         success: function (data) {
@@ -148,7 +150,7 @@ function deleteDepartment() {
         departmentID: departmentID
     };
     $.ajax({
-        url: '/deletedepartments',
+        url: baseURl + 'deletedepartments',
         type: 'POST',
         data: department,
         success: function (data) {
@@ -187,7 +189,7 @@ function editDept(department) {
 
 function getEmployees() {
     $.ajax({
-        url: '/getemployees',
+        url: baseURl + 'getemployees',
         type: 'GET',
         success: function (data) {
             displayEmployees(data);
@@ -217,7 +219,7 @@ function displayEmployees(data) {
 
 function populateSelect() {
     $.ajax({
-        url: '/departmentnames',
+        url: baseURl + 'departmentnames',
         type: 'GET',
         success: function (data) {
             var departments = JSON.parse(data);
@@ -254,7 +256,7 @@ function addEmployee() {
         activity: activity
     };
     $.ajax({
-        url: '/addemployees',
+        url: baseURl + 'addemployees',
         type: 'POST',
         data: employee,
         success: function (data) {
@@ -291,7 +293,7 @@ function updateEmployee() {
         activity: activity
     };
     $.ajax({
-        url: '/updateemployees',
+        url: baseURl + 'updateemployees',
         type: 'POST',
         data: employee,
         success: function (data) {
@@ -322,7 +324,7 @@ function deleteEmployee() {
         employeeID: employeeID
     };
     $.ajax({
-        url: '/deleteemployees',
+        url: baseURl + 'deleteemployees',
         type: 'POST',
         data: employee,
         success: function (data) {
