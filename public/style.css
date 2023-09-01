@@ -1,0 +1,54 @@
+#midBody{
+    background-image: linear-gradient(to bottom, rgb(12, 247, 126, 0.714) 0%, #000000 100%);
+    min-height: 55rem;
+}
+
+#footer .btn:hover, .hover:hover, .dropdown-item:hover {
+    background-color: rgba(12, 247, 126, 0.714) !important;
+    color: black !important;
+}
+
+.popper:hover {
+    box-shadow: .25rem .25rem 2rem black;
+}
+
+.popper {
+    transition: box-shadow .5s, background-color .5s;
+}
+
+.popper-text{
+    color: black;
+    transition: text-shadow .5s;
+}
+
+.popper-text:hover{
+    text-shadow: .25rem .25rem 1rem black;
+}
+
+.popper-lite {
+    transition: box-shadow .5s;
+}
+
+.popper-lite:hover {
+    box-shadow: .25rem .25rem 1rem rgba(0, 0, 0, 0.482);
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+#bg {
+    background-image: url("server1.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
