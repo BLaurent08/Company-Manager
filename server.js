@@ -19,6 +19,8 @@ connection.connect(function(err) {
     console.log("Connected!");
 });
 
+const baseURl = "https://company-manager-nine.vercel.app/";
+
 const server = http.createServer((req, res) => {
     let url = req.url.split('?');
     if (url[0] === '/') {
