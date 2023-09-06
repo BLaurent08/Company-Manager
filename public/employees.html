@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-secondary bg-gradient" onload="ChangeEnabled(); getEmployees(); populateSelect()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mx-0 p-0 pb-3 pt-3">
         <div class="container-fluid mx-0 p-0">
-            <a class="navbar-brand text-center popper-text fs-1 mx-0 p-0 ms-md-5" href="/">Company Co. <span class="fs-4 ms-3">Employees</span></a>
-            <button class="navbar-toggler text-center popper" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand text-center popper-text fs-1 mx-0 p-0 ms-md-5" href="/">Company Co. <span
+                    class="fs-4 ms-3">Employees</span></a>
+            <button class="navbar-toggler text-center popper" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown-center text-center ms-3 me-3">
-                        <button class="popper-lite dropdown-toggle btn-outline-success btn" data-bs-toggle="dropdown" type="button" aria-expanded="false" id="dropdownButton">Dropdown</button>
+                        <button class="popper-lite dropdown-toggle btn-outline-success btn" data-bs-toggle="dropdown"
+                            type="button" aria-expanded="false" id="dropdownButton">Dropdown</button>
                         <div class="dropdown-menu rounded-bottom-4 shadow text-center p-0 mx-0">
                             <a href="/" class="dropdown-item rounded-top-2 text-center mx-0 p-0">Index</a>
                             <a href="employees" class="dropdown-item text-center mx-0 p-0 active">Employees</a>
-                            <a href="departments" class="dropdown-item rounded-bottom-4 text-center mx-0 p-0 mt-0 mb-0">Departments</a>
+                            <a href="departments"
+                                class="dropdown-item rounded-bottom-4 text-center mx-0 p-0 mt-0 mb-0">Departments</a>
                         </div>
                     </li>
                 </ul>
@@ -37,7 +45,8 @@
                     <div class="row mx-0 p-2 align-middle justify-content-center">
                         <div class="mx-0 p-0 rounded-5 form-group text-center popper col-2 border border-2 border-dark">
                             <div class="input-group-prepend">
-                                <select name="CRUD" id="function" class="form-select rounded-5" onchange="ChangeEnabled()">
+                                <select name="CRUD" id="function" class="form-select rounded-5"
+                                    onchange="ChangeEnabled()">
                                     <option selected disabled>Select a Function</option>
                                     <option value="Create" id="C">Create</option>
                                     <option value="Update" id="U">Update</option>
@@ -46,36 +55,52 @@
                             </div>
                         </div>
                         <div class="col-12 mt-3"></div>
-                        <p class="mx-0 p-0 pb-0 text-center h4" id="updateText" hidden>Click a row to update the values.</p>
-                        <div class="mx-0 p-0 rounded-5 form-group text-center popper col-sm-3 border border-2 border-dark me-sm-2" id="input1">
+                        <p class="mx-0 p-0 pb-0 text-center h4" id="updateText" hidden>Click a row to update the values.
+                        </p>
+                        <div class="mx-0 p-0 rounded-5 form-group text-center popper col-sm-3 border border-2 border-dark me-sm-2"
+                            id="input1">
                             <div class="input-group">
-                                <label for="empID" class="input-group-text rounded-start-5 border-end border-2 border-dark">Employee ID:</label>
-                                <input readonly type="number" name="empID" id="empID" placeholder="Enter the Employee ID" class="rounded-end-5 form-control">
+                                <label for="empID"
+                                    class="input-group-text rounded-start-5 border-end border-2 border-dark">Employee
+                                    ID:</label>
+                                <input readonly type="number" name="empID" id="empID"
+                                    placeholder="Enter the Employee ID" class="rounded-end-5 form-control">
                             </div>
                         </div>
-                        <div class="rounded-5 text-center popper col mx-0 p-0 form-group border border-2 border-dark" id="input2">
+                        <div class="rounded-5 text-center popper col mx-0 p-0 form-group border border-2 border-dark"
+                            id="input2">
                             <div class="input-group">
-                                <label for="empName" class="input-group-text rounded-start-5 border-end border-2 border-dark">Employee Name:</label>
-                                <input type="text" name="empName" id="empName" placeholder="Enter the Employee Name" class="rounded-end-5 form-control">
+                                <label for="empName"
+                                    class="input-group-text rounded-start-5 border-end border-2 border-dark">Employee
+                                    Name:</label>
+                                <input type="text" name="empName" id="empName" placeholder="Enter the Employee Name"
+                                    class="rounded-end-5 form-control">
                             </div>
                         </div>
-                        <div class="rounded-5 text-center popper col ms-sm-2 mx-0 p-0 form-group border border-2 border-dark" id="input3">
+                        <div class="rounded-5 text-center popper col ms-sm-2 mx-0 p-0 form-group border border-2 border-dark"
+                            id="input3">
                             <div class="input-group-prepend mx-0 p-0">
                                 <select name="category" id="category" class="form-select rounded-5">
-                                    
+
 
                                 </select>
                             </div>
                         </div>
                         <div class="col-12 mt-3"></div>
-                        <div class="rounded-5 text-center popper col mx-0 p-0 form-group border border-2 border-dark" id="input4">
+                        <div class="rounded-5 text-center popper col mx-0 p-0 form-group border border-2 border-dark"
+                            id="input4">
                             <div class="input-group">
-                                <label for="activity" class="input-group-text rounded-start-5 border-end border-2 border-dark">Activity:</label>
-                                <textarea name="activity" id="activity" placeholder="Enter the activity performed by the employee" class="rounded-end-5 form-control"></textarea>
+                                <label for="activity"
+                                    class="input-group-text rounded-start-5 border-end border-2 border-dark">Activity:</label>
+                                <textarea name="activity" id="activity"
+                                    placeholder="Enter the activity performed by the employee"
+                                    class="rounded-end-5 form-control"></textarea>
                             </div>
-                        </div>                        
+                        </div>
                         <div class="col-sm-2 rounded mx-0 p-0 ms-sm-2 form-group" id="btn1">
-                            <button class="btn btn-success form-control rounded-5 border border-2 border-dark mx-0 popper" onclick="submitData()" type="button" id="btnSubmit">Submit</button>
+                            <button
+                                class="btn btn-success form-control rounded-5 border border-2 border-dark mx-0 popper"
+                                onclick="submitData()" type="button" id="btnSubmit">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -91,7 +116,12 @@
                         </tr>
                     </thead>
                     <tbody id="postEmployee">
-
+                        <tr>
+                            <td colspan="4">
+                                <ion-icon name="refresh"></ion-icon>
+                                This may take a few moments; if you have waited more than 30 seconds, please refresh the page and try again
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -99,7 +129,11 @@
     </div>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

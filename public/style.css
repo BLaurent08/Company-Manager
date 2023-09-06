@@ -8,6 +8,19 @@
     color: black !important;
 }
 
+ion-icon {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .popper:hover {
     box-shadow: .25rem .25rem 2rem black;
 }
